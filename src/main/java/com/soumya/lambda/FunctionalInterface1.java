@@ -9,6 +9,6 @@ package com.soumya.lambda;
  */
 
 @FunctionalInterface
-interface FunctionalInterfaceTst {
+interface FunctionalInterface1 {
     int calculate(int x);
 }
