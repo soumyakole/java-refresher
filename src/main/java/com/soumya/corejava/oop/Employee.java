@@ -1,6 +1,7 @@
 package com.soumya.corejava.oop;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Random;
 
 public class Employee {
@@ -77,11 +78,29 @@ public class Employee {
         salary += raise;
     }
 
+    @Override
+    public boolean equals(Object otherObject){
+        if (this == otherObject){
+            return true;
+        }
+        if (otherObject == null) return false;
+        if (this.getClass() != otherObject.getClass()) return false;
+        // now we know otherObject is a non-null Employee
+        Employee other = (Employee) otherObject;
+        return Objects.equals(this.name, other.name) &&
+                this.salary == other.salary &&
+                Objects.equals(this.hireDay, other.hireDay);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.name, this.salary, this.hireDay);
+    }
 
     @Override
     public String toString(){
-        return "Employee ( Name : " +  this.name
+        return "Employee [ Name : " +  this.name
                 + ", Id : " + this.id
-                + ", Salary : " + this.salary + ")";
+                + ", Salary : " + this.salary + "]";
     }
 }
