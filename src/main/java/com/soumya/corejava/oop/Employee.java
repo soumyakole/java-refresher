@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Random;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 
     private static int nextId;
 
@@ -102,5 +102,9 @@ public class Employee {
         return "Employee [ Name : " +  this.name
                 + ", Id : " + this.id
                 + ", Salary : " + this.salary + "]";
+    }
+
+    public int compareTo(Employee other){
+        return Double.compare(salary, other.salary);
     }
 }
